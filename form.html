@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="signup">
+        <h3>signup</h3>
+      <input type="text" placeholder="username" id="su">
+      <br>
+      <br>
+      <input type="password" placeholder="password" id="sp">
+      <br>
+      <br>
+
+      <input type="password" placeholder="conpassword" id="sc">
+      <br>
+      <br>
+      <input type="email" placeholder="email" id="se">
+      <br>
+      <br>
+    </div>
+    <div class="login">
+        <h3>login</h3>
+        <input type="text" placeholder="username" id="lu">
+        <br>
+        <br>
+        <input type="password" placeholder="password" id="lp">
+      </div>
+
+      <div class="forget">
+        <h3>forget</h3>
+        <input type="text" placeholder="username" id="fu">
+        <br>
+        <br>
+        <input type="password" placeholder="password" id="fp">
+      </div>
+
+      <script>
+     var users=[
+        {lu:"shahd",lp:"123"}
+     ]
+     function signup(){
+        var name=document.getElementById('su').value;
+        var pass=document.getElementById('sp').value;
+        var conpass=document.getElementById('sc').value;
+        var email=document.getElementById('se').value;
+        if(pass!=conpass){
+            alert('not ecual con');
+        }else if(name<5||name>15){
+            alert('name not valed');
+        }else{
+            var obj={lu:name,lp:pass};
+            users.push(obj);
+            alert('signup succ');
+        }
+     }
+
+     function login(){
+        var namee=document.getElementById('lu').value;
+        var pass=document.getElementById('lp').value;
+        var log=false;
+        for(var i=0;i<users.length;i++){
+            if(namee==users[i].lu&&pass==users[i].lp){
+               log=true;
+            }
+        }
+        if(log){
+            alert('login succ');
+        }
+{
+    alert(' not login succ');
+}
+     }
+
+     function forget(){
+        var username=document.getElementById('fu').value;
+        var newpass=document.getElementById('fp').value;
+        var update=false;
+        for(var i=0;i<users.length;i++){
+            if(username==users[i].lu){
+                users[i].lp=newpass;
+               update=true;
+            }
+          
+        }
+      
+     }
+      </script>
+
+
+</body>
+</html>
